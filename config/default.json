@@ -1,0 +1,6 @@
+{
+    "mongoURI": "mongodb+srv://steve123:steve123@codesocial.lnapf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "jwtSecret": "secrettoken",
+    "githubClientId": "5686841f9f14d31cbd4d",
+    "githubSecret": "cc67f2fca13c784cf39f150267ac90f06d5a54f8"
+}
