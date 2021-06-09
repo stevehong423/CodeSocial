@@ -3,7 +3,7 @@ import { GET_PROFILE, PROFILE_ERROR, CLEAR_PROFILE, UPDATE_PROFILE, GET_PROFILES
 const initialState = {
     profile: null, //request to all profile data
     profiles: [],  //profile listing page (list of developers)
-    repost: [], //githup repos
+    repos: [], //githup repos
     loading: true,
     error: {} //any errors in the request
 }
