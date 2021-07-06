@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import Spinner from "../layout/Spinner";
 import ProfileTop from "./ProfileTop";
 import ProfileAbout from "./ProfileAbout";
+import ProfileExperience from "./ProfileExperience";
 import { getProfileById, getProfiles } from "../../actions/profile";
 
 const Profile = ({
@@ -14,7 +15,7 @@ const Profile = ({
   match,
 }) => {
   useEffect(() => {
-    getProfiles(match.params.id);
+    getProfileById(match.params.id);
   }, [getProfileById]);
 
   return (
@@ -38,6 +39,21 @@ const Profile = ({
       <div class='profile-grid my-1'>
         <ProfileTop profile={profile} />
         <ProfileAbout profile={profile} />
+        <div className='profile-exp bg-white p-2'>
+          <h2 className='text-primary'>Experience</h2>
+          {profile.experience.length > 0 ? (
+            <Fragment>
+              {profile.experience.map((experience) => (
+                <ProfileExperience
+                  key={experience._id}
+                  experience={experience}
+                />
+              ))}
+            </Fragment>
+          ) : (
+            <h4>No Experience Credentials</h4>
+          )}
+        </div>
       </div>
     </Fragment>
   );
@@ -48,6 +64,7 @@ Profile.propTypes = {
   profile: PropTypes.object,
   auth: PropTypes.object,
 };
+
 const mapStateToProps = (state) => ({
   profile: state.profile,
   auth: state.auth,
